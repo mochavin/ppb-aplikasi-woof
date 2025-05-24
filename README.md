@@ -1,5 +1,11 @@
 Woof App
 ==================================
+## Demo
+
+Klik untuk melihat demo:
+
+[![Watch the video](https://img.youtube.com/vi/ofIZi0j5HeI/hqdefault.jpg)](https://youtu.be/ofIZi0j5HeI?si=Cg4BtnAW9tJ_JISv)
+
 
 The Woof app is a list of dog photos with information about them including their name, age, and favorite activity. This app also uses Material Design to create a beautiful app experience for the user.
 
