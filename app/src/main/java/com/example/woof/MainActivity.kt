@@ -22,6 +22,7 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -105,7 +106,7 @@ fun DogItem(
                 .padding(dimensionResource(id = R.dimen.padding_small))
         ) {
             DogIcon(dog.imageResourceId)
-            DogInformation(dog.name, dog.age)
+            DogInformation(dog.name, dog.age, dog.hobbies)
         }
     }
 }
@@ -147,19 +148,40 @@ fun DogIcon(
 fun DogInformation(
     @StringRes dogName: Int,
     dogAge: Int,
+    dogHobby: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = dimensionResource(R.dimen.padding_medium))
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = dimensionResource(R.dimen.padding_small)),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = stringResource(dogName),
+                style = MaterialTheme.typography.displayMedium,
+            )
+            Text(
+                text = stringResource(R.string.years_old, dogAge),
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
+
         Text(
-            text = stringResource(dogName),
-            style = MaterialTheme.typography.displayMedium,
-            modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
-        )
-        Text(
-            text = stringResource(R.string.years_old, dogAge),
-            style = MaterialTheme.typography.bodyLarge
+            text = stringResource(dogHobby),
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier
+                .padding(top = dimensionResource(R.dimen.padding_small))
+                .align(Alignment.Start)
         )
     }
+
 }
 
 /**
